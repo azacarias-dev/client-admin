@@ -1,20 +1,20 @@
-import {axiosAuth} from "./api";
+import { axiosAuth } from "./api";
 
 export const login = async (data) => {
-    return await axiosAuth.post("/auth/login", data);
+    return await axiosAuth.post("api/v1/auth/login", data);
 };
 
 export const register = async (data) => {
     return await axiosAuth.post("/auth/register", data, {
-        Headers: {"Content-Type": "multipart/form-data"}
+        Headers: { "Content-Type": "multipart/form-data" }
     });
 };
 
-export const forgotPassword = async (email)=> {
+export const forgotPassword = async (email) => {
     return await axiosAuth.post("/auth/forgot-password", { email });
 };
 
-export const resetPassword = async (token, newPassword)=> {
+export const resetPassword = async (token, newPassword) => {
     return await axiosAuth.post("/auth/reset-password", { token, newPassword });
 };
 
@@ -27,6 +27,6 @@ export const updateUserRole = async (userId, roleName) => {
 }
 
 export const getAllUsers = async () => {
-    const {data} = await axiosAuth.get("auth/users");
-    return {users: data};
+    const { data } = await axiosAuth.get("auth/users");
+    return { users: data };
 };

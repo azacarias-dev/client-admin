@@ -1,6 +1,6 @@
 import { ForgotPasswordForm } from "../components/ForgotPasswordForm";
 import { useState } from "react";
-import LoginForm from "../components/LoginForm";
+import { LoginForm } from "../components/LoginForm";
 
 const AuthPage = () => {
 
@@ -11,7 +11,7 @@ const AuthPage = () => {
         <div className="min-h-screen flex items-center justify-center bg-gray-50 p-4">
             <div className="w-full max-w-xl bg-white
              rounded-xl sahadow-lg border border-gray-200 p-6 
-             md: p-10">             
+             md: p-10">
 
                 <div className="flex justify-center mb-6">
                     <img
@@ -46,9 +46,9 @@ const AuthPage = () => {
                 </div>
                 {/* SECCIÓN DEL FORMULARIO */}
                 {isForgot ? (
-                    <ForgotPasswordForm onSwitch={() => {setIsForgot(false);}}/>
+                    <ForgotPasswordForm onSwitch={() => { setIsForgot(false); }} />
                 ) : (
-                <LoginForm onForgot={() => setIsForgot(true)} />)}
+                    <LoginForm onForgot={() => setIsForgot(true)} />)}
             </div>
         </div>
     );

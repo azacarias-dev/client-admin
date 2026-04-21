@@ -1,11 +1,23 @@
 import { AppRoutes } from "./routes/AppRoutes";
-import { Toaster, toast } from "react-hot-toast";
+import { Toaster } from "react-hot-toast";
 
-function App() {   
+function App() {
   return (
-        <>
-          <AppRoutes/>
-        </>
+    <>
+      <Toaster
+        position="top-center"
+        toastOptions={{
+          style: {
+            fontFamily: "inherit",
+            fontWeight: 600,
+            fontSize: "1rem",
+            borderRadius: "8px",
+          },
+        }}
+      />
+
+      <AppRoutes />
+    </>
   );
 }
 
