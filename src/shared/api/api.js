@@ -11,6 +11,15 @@ const axiosAuth = axios.create({
   }
 });
 
+// Instancia de axios 
+const axiosAdmin = axios.create({
+  baseURL: import.meta.env.VITE_ADMIN_URL,
+  timeout: 80000,
+  headers: {
+    "Content-Type": "application/json",
+  }
+});
+
 // Configuracion de interceptores
 axiosAuth.interceptors.request.use((config) => {
   config._axiosClient = "auth";
@@ -103,11 +112,13 @@ const handleRefreshToken = async function (_error) {
   return Promise.reject(_error);
 };
 
+// Interceptor para peticiones a la API de Auth
 axiosAuth.interceptors.response.use((res) => res, handleRefreshToken);
 
-// axiosAdmin.interceptors.response.use((res) => res, handleRefreshToken);
+// Interceptor para peticiones a la API de Admin
+axiosAdmin.interceptors.response.use((res) => res, handleRefreshToken);
 
 // ================= EXPORT AXIOS =================
 // export { axiosAuth, axiosAdmin };
-export { axiosAuth };
+export { axiosAuth, axiosAdmin };
 export { handleRefreshToken };

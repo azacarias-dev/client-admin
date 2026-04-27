@@ -19,7 +19,7 @@ export const LoginForm = ({ onForgot }) => {
 
     const onSubmit = async (data) => {
         const res = await login(data);
-        if (res && res.success) {
+        if (res) {
             navigate("/dashboard");
             toast.success("!Bienvenido de nuevo");
         }
