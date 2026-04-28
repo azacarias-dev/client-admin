@@ -1,5 +1,6 @@
 import { Navbar } from "./Navbar";
 import { Sidebar } from "./Sidebar";
+import { Outlet } from "react-router-dom";
 
 export const DashboardContainer = () => {
     return (
@@ -13,8 +14,8 @@ export const DashboardContainer = () => {
 
                 <main className="flex-1 p-6">
                     {/*Children*/}
-                    Contenido del menu
-                    
+                    <Outlet />
+
                 </main>
 
             </div>
