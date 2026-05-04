@@ -1,10 +1,6 @@
 import imgLogo from "../../../assets/img/kinal_sports.png";
-<<<<<<< HEAD
-import { AvatarUser } from "../../ui/AvatarUser";
-=======
 import { AvatarUser } from "../ui/AvatarUser";
 
->>>>>>> 78ee673e4b779b1ff5501bfc4209c116dcb26676
 export const Navbar = () => {
     return (
         <nav className="bg-white shadow-md sticky top-0 z-50">

@@ -89,6 +89,15 @@ export const useAuthStore = create(
                 }
             },
         }),
-        { name: "auth-store" }
+        { 
+            name: "auth-store-v2",
+            partialize: (state) => ({
+                user: state.user,
+                token: state.token,
+                refreshToken: state.refreshToken,
+                expiresAt: state.expiresAt,
+                isAuthenticated: state.isAuthenticated
+            })
+        }
     )
 );

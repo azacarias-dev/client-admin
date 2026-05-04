@@ -29,6 +29,15 @@ axiosAuth.interceptors.request.use((config) => {
   return config;
 });
 
+axiosAdmin.interceptors.request.use((config) => {
+  config._axiosClient = "admin";
+  const token = useAuthStore.getState().token;
+  if (token) {
+    config.headers.Authorization = `Bearer ${token}`;
+  }
+  return config;
+});
+
 // Configuracion de documentacion axios
 let _isRefreshing = false;
 let failedQueue = [];
