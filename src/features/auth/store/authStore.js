@@ -77,7 +77,6 @@ export const useAuthStore = create(
                         isAuthenticated: true,
                         loading: false,
                     })
-
                     return { success: true, user: data.userDetails };
                 } catch (error) {
                     const errorMsg = error.response?.data?.message || "Error de conexion";

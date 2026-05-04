@@ -11,10 +11,9 @@ const axiosAuth = axios.create({
   }
 });
 
-// Instancia de axios 
 const axiosAdmin = axios.create({
   baseURL: import.meta.env.VITE_ADMIN_URL,
-  timeout: 80000,
+  timeout: 8000,
   headers: {
     "Content-Type": "application/json",
   }
@@ -115,7 +114,6 @@ const handleRefreshToken = async function (_error) {
 // Interceptor para peticiones a la API de Auth
 axiosAuth.interceptors.response.use((res) => res, handleRefreshToken);
 
-// Interceptor para peticiones a la API de Admin
 axiosAdmin.interceptors.response.use((res) => res, handleRefreshToken);
 
 // ================= EXPORT AXIOS =================
