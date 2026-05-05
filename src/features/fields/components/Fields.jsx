@@ -7,10 +7,12 @@ import { useUIStore } from "../../auth/store/uiStore";
 import { showError } from "../../../shared/utils/toast"
 import { Spinner } from "@material-tailwind/react";
 import { FieldModal } from "./FieldModal";
+import { showConfirmToast } from "../../auth/components/ConfirmModal.jsx";
+import { deleteField } from "../../../shared/api/";
 
 export const Fields = () => {
 
-    const { fields, loading, error, getFields, deleteField } = useFieldsStore();
+    const { fields, loading, error, getFields } = useFieldsStore();
     const { openConfirm } = useUIStore();
 
     const [openModal, setOpenModal] = useState(false);
@@ -97,13 +99,16 @@ export const Fields = () => {
                                 </button>
 
                                 <button className="flex-1 py-2 rounded-lg bg-red-600 text-white font-medium hover:bg-red-700 transition"
-                                    onClick={() =>
-                                        openConfirm({
+                                    onClick={() => {
+                                        console.log("boton presionado eliminar");
+                                        showConfirmToast({
                                             title: "Eliminar Campo",
-                                            message: `Eliminar ${field.fieldName}?`,
-                                            onConfirm: () => deleteField(field._id),
+                                            message: `¿Eliminar ${field.fieldName}?`,
+                                            onConfirm: () => {
+                                                deleteField(field._id);
+                                            }
                                         })
-                                    }
+                                    }}
                                 >
                                     🗑️ Eliminar
                                 </button>
@@ -121,6 +126,6 @@ export const Fields = () => {
                 }}
                 field={selectedField}
             />
-        </div>
+        </div >
     );
 };
