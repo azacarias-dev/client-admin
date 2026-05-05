@@ -57,7 +57,7 @@ export const Fields = () => {
                         {/* IMAGEN */}
                         <div className="w-full h-52 bg-gray-100 flex items-center justify-center">
                             <img
-                                src={field.photo}
+                                src={`https://res.cloudinary.com/dzvyh0ywj/image/upload/v1777941991/kinalSports/${field.photo}`}
                                 alt={field.fieldName}
                                 className="max-h-full max-w-full object-contain rounded-t-xl"
                             />
